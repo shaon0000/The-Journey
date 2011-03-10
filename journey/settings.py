@@ -1,4 +1,6 @@
 # Django settings for journey project.
+# local settings
+import os
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -7,13 +9,15 @@ ADMINS = (
     # ('Your Name', 'your_email@domain.com'),
 )
 
+CUR_DIR = os.getcwd()
+
 MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': '',                      # Or path to database file if using sqlite3.
-        'USER': '',                      # Not used with sqlite3.
+        'ENGINE': 'mysql', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
+        'NAME': 'journey',                      # Or path to database file if using sqlite3.
+        'USER': 'localhost',                      # Not used with sqlite3.
         'PASSWORD': '',                  # Not used with sqlite3.
         'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
         'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
@@ -81,6 +85,7 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
+    CUR_DIR + '/site_media/templates'
 )
 
 INSTALLED_APPS = (
@@ -94,3 +99,5 @@ INSTALLED_APPS = (
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
 )
+
+from localsettings import *
