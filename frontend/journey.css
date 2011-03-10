@@ -1,0 +1,68 @@
+.tableballot {
+	display: table;
+}
+
+.tableballot > .team {
+	display: table-row;
+}
+
+.tableballot > .team > div {
+	display: table-cell;
+	padding: 4px;
+}
+
+div {
+	border: 1px solid black;
+}
+
+.slideballot {
+}
+
+.slideballot > .team {
+	width: 5in;
+	height: 5in;
+}
+
+
+.useful, .funny, .cool, .bling {
+	width: 160px;
+	height: 40px;
+}
+
+.stars-0, .stars-1, .stars-2, .stars-3, .stars-4, .stars-5 {
+	background: url("stars.png");
+	background-repeat: no-repeat;
+	width: 160px;
+	height: 30px;
+}
+
+.rating {
+	background-position: 0 0px;
+}
+
+.stars-1, .mouseover-stars1:hover {
+	background-position: 0 -36px;
+}
+
+.stars-2, .mouseover-stars2:hover {
+	background-position: 0 -72px;
+}
+
+.stars-3, .mouseover-stars3:hover {
+	background-position: 0 -108px;
+}
+
+.stars-4, .mouseover-stars4:hover {
+	background-position: 0 -144px;
+}
+
+.stars-5, .mouseover-stars5:hover {
+	background-position: 0 -180px;
+}
+
+.starArea {
+	width: 32px;
+	height: 30px;
+	display: inline-block;
+	border: 0px;
+}
