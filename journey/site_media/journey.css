@@ -1,17 +1,30 @@
-main {
-	height: 1000px;
-
+#container {
+	-webkit-border-top-left-radius: 10px;
+	-webkit-border-top-right-radius: 10px;
+	-moz-border-radius-topleft: 10px;
+	-moz-border-radius-topright: 10px;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	-webkit-border-bottom-right-radius: 10px;
+	-webkit-border-bottom-left-radius: 10px;
+	-moz-border-radius-bottomright: 10px;
+	-moz-border-radius-bottomleft: 10px;
+	border-bottom-right-radius: 10px;
+	border-bottom-left-radius: 10px;
+	background: white;
+	width: 1000px;
+	padding: 20px;
+	margin: auto;
 }
 
 body {
-	background: #A0A0A0;
+	background: grey;
 }
 
 
 .tableballot {
 	display: table;
 	border: none;
-	background: #A0A0A0;
 	color: white;
 }
 
@@ -24,32 +37,29 @@ body {
 #headers > div,
 .tableballot > .team > div {
 	display: table-cell;
+	max-width: 200px;
+	height: 40px;
 	padding: 4px;
-	border: 1px dotted red; 
+	border: 5px red; 
+	background: white;
+
 }
 
-.singlevote {
-	display: table;
-	border: none;
-	background: #A0A0A0;
-	color: white;
-}
-
-.singlevote > .team {
-	display: table-cell;
-	
-}
 
 #headers > div {
-	font-family: Helvetica, Arial, sans-serif;
+	font-family: verdana;
 	font-size: 20px;
 	color: black;
 	text-align: center;
 }
 
+.lefty {
+	text-align: left !important
+}
+
 .tableballot > .team > div:nth-child(odd),
 #headers > div:nth-child(odd) {
-	background: #eee;
+	background: #white;
 }
 
 #headers > div {
@@ -71,20 +81,24 @@ body {
 }
 
 .teamname {
-	font-family: Helvetica, Arial, sans-serif;
-	font-size: 20px;
+	font-family: verdana;
+	font-size: 14px;
+	vertical-align: middle;
+	color: grey;
 }
 
 .members {
-	font-family: Helvetica, Arial, sans-serif;
+	font-family: verdana;
 	font-size: 12px;
 	color: green;
+	vertical-align: middle;
 }
 
 .description {
-	font-family: Helvetica, Arial, sans-serif;
-	font-size: 14px;
+	font-family: verdana;
+	font-size: 10px;
 	color: gray;
+	vertical-align: middle;
 }
 
 .slideballot {
@@ -101,43 +115,51 @@ body {
 
 
 .useful, .funny, .cool, .bling {
-	width: 170px;
-	height: 40px;
+	width: 93px;
+	height: 20px;
 }
 
 .rating {
 	margin: 5px;
-	background: url("stars.png");
+	background: url("stars.png") ;
 	background-repeat: no-repeat;
-	width: 160px;
-	height: 30px;
+	width: 93px;
+	height: 20px;
 	border: none;
 	background-position: 0 0px;
 }
 
 .stars-1, .mouseover-stars1:hover {
-	background-position: 0 -36px;
+	background-position: 0 -20px;
 }
 
 .stars-2, .mouseover-stars2:hover {
-	background-position: 0 -72px;
+	background-position: 0 -40px;
 }
 
 .stars-3, .mouseover-stars3:hover {
-	background-position: 0 -108px;
+	background-position: 0 -60px;
 }
 
 .stars-4, .mouseover-stars4:hover {
-	background-position: 0 -144px;
+	background-position: 0 -80px;
 }
 
 .stars-5, .mouseover-stars5:hover {
-	background-position: 0 -180px;
+	background-position: 0 -100px;
 }
 
 .starArea {
-	width: 32px;
-	height: 30px;
+	width: 17.5px;
+	height: 20px;
 	display: inline-block;
 	border: 0px;
+}
+
+#footer{
+	font-family: verdana;
+	font-size: 14px;
+	color: white;
+	text-align: right;
+	margin: 0 75px 0 0;
 }
