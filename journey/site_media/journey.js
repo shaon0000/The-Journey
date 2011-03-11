@@ -27,15 +27,18 @@ $(document).ready(function() {
 	for (var i=0; i<teams.length; i++) {
 		team = teams[i];
 		sMembers = team.members.join(', ');
-		$(ballot).append(
+		var team_votes = $('<div class="team_votes" />');
+		team_votes.append($('<div class="useful" />').append($('<div class="rating stars-'+team.stats.useful+'" />')))
+		.append($('<div class="funny" />').append($('<div class="rating stars-'+team.stats.funny+'" />')))
+		.append($('<div class="cool" />').append($('<div class="rating stars-'+team.stats.cool+'" />')))
+		.append($('<div class="bling" />').append($('<div class="rating stars-'+team.stats.bling+'" />')))
+
+		$('#hackathon-teams').append(
 			$('<div class="team" />')
-				.append($('<div class="teamname"/>').text(team.name))
-				.append($('<div class="members"/>').text(team.members.join(', ')))
-				.append($('<div class="description" />').text(team.description))
-				.append($('<div class="useful" />').append($('<div class="rating stars-'+team.stats.useful+'" />')))
-				.append($('<div class="funny" />').append($('<div class="rating stars-'+team.stats.funny+'" />')))
-				.append($('<div class="cool" />').append($('<div class="rating stars-'+team.stats.cool+'" />')))
-				.append($('<div class="bling" />').append($('<div class="rating stars-'+team.stats.bling+'" />')))
+			.append($('<div class="teamname"/>').text(team.name))
+			.append($('<div class="members"/>').text(team.members.join(', ')))
+			.append($('<div class="description" />').text(team.description))
+			.append(team_votes)
 		)
 	}
 
