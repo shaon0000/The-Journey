@@ -55,9 +55,9 @@ def register(request):
             user = User.objects.get(username=username)
             return HttpResponseRedirect('/register/' + error_query_string('already exists, try again'))
         except User.DoesNotExist:
-            user = User.objects.create(username=username, password=password)
+            user = User.objects.create_user(username, username, password)
             authenticate(username=username, password=password)
-            return HttpResponseRedirect('/ballot/')
+            return user_login(request)
     else:
         # registration form was asked for
         c = {}
