@@ -2,4 +2,4 @@
 *.swp
 ._*
 journey.sqlite
-settings.py
+journey/settings.py
