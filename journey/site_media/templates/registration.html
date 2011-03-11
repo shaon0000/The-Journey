@@ -3,7 +3,7 @@
 <ul class="footerNav">
 	<form action="/register/" method="post">{% csrf_token %}
     <p style="color:red; font-weight:bold;"> {{ error }} </p>
-	<input type="hidden" name="next" value="{% if next %}{{next}}{% else %}/booth/{% endif %}">
+	<input type="hidden" name="next" value="{% if next %}{{next}}{% else %}/ballot/{% endif %}">
     <li>Email:<input type="textbox" name="username" type="text"></li>
 	<li>Password:<input type="password" name="password"></li>
     <li>Password Again:<input type="password" name="repeat"></li>

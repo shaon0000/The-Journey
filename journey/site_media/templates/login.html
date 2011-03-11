@@ -41,7 +41,7 @@
 <ul class="footerNav">
 
 	<form action="/login/" method="post">{% csrf_token %}
-	{{ error }}<input type="hidden" name="next" value="{% if next %}{{next}}{% else %}/booth/{% endif %}">
+	{{ error }}<input type="hidden" name="next" value="{% if next %}{{next}}{% else %}/ballot/{% endif %}">
     <li>Yelp ID:<input type="textbox" name="username" type="text"></li>
 	<li>Yelp Password:<input type="password" name="password" type="password"></li>
 	<li><input type="submit" name="submit" value="Login"></li>
