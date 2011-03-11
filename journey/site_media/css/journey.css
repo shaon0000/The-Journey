@@ -106,9 +106,12 @@ body {
 	vertical-align: middle;
 }
 
+.ufcb, .ufcb-header {
+	width: 111px;
+}
+
 .ufcb {
-	width: 93px;
-	height: 20px;
+	height: 40px;
 }
 
 .rating {
