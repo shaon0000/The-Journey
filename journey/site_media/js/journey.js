@@ -13,10 +13,11 @@
 				$('<div class="team" id="team-'+team.project_id+'" teamnum="'+team.project_id+'"/>')
 					.append($('<div class="teamname"/>').text(team.name))
 					.append($('<div class="members"/>').text(team.members.join(', ')))
-					.append($('<div class="ufcb" votetype="useful" />').append($('<div class="rating stars-'+team.stats.USEFUL+'" />')))
-					.append($('<div class="ufcb" votetype="funny" />').append($('<div class="rating stars-'+team.stats.FUNNY+'" />')))
-					.append($('<div class="ufcb" votetype="cool" />').append($('<div class="rating stars-'+team.stats.COOL+'" />')))
-					.append($('<div class="ufcb" votetype="bling" />').append($('<div class="rating stars-'+team.stats.BLING+'" />')))
+					.append($('<div class="description"/>').text(team.description))
+					.append($('<div class="ufcb" votetype="USEFUL" />').append($('<div class="rating stars-'+team.stats.USEFUL+'" />')))
+					.append($('<div class="ufcb" votetype="FUNNY" />').append($('<div class="rating stars-'+team.stats.FUNNY+'" />')))
+					.append($('<div class="ufcb" votetype="COOL" />').append($('<div class="rating stars-'+team.stats.COOL+'" />')))
+					.append($('<div class="ufcb" votetype="BLING" />').append($('<div class="rating stars-'+team.stats.BLING+'" />')))
 			)
 		}
 
