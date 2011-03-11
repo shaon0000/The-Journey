@@ -8,6 +8,7 @@ urlpatterns = patterns(
     '', 
     (r'^site_media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': os.curdir + '/site_media'}),
     (r'^my_votes/$', 'journey.vote.views.get_my_votes'),
+    (r'^vote/$', 'journey.vote.views.vote'),
     (r'^login/$', 'journey.creds.views.user_login'),
-    (r'^logout/$', 'journey.creds.views.logout'),
+    (r'^logout/$', 'journey.creds.views.logout_user'),
 )

@@ -1,6 +1,7 @@
 from django.http import HttpResponseRedirect, HttpRequest
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.models import User
 from django.shortcuts import render_to_response
 
 def user_login(request):
@@ -16,16 +17,16 @@ def user_login(request):
                 login(request, user)
                 return HttpResponseRedirect(next)
             else:
-                return render_to_response('login_page.html', {'error': 'Your account has been disabled'})
+                return render_to_response('login.html', {'error': 'Your account has been disabled'})
         else:
-            return render_to_resposne('login_page.html', {'error': 'incorrect password/username combination'})
-    elif request.GET:
-        # lgin form was requested
+            return render_to_resposne('login.html', {'error': 'incorrect password/username combination'})
+    else:
+        # login form was requested
         next = request.GET.get('next','/booth/')
-        return render_to_response('login_page.html',{'next':next})
+        return render_to_response('login.html',{'next':next})
 
 @login_required
-def logoutUser(request):
+def logout_user(request):
   logout(request)
   return HttpResponseRedirect('/login/')
 
