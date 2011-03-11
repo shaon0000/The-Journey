@@ -13,6 +13,9 @@ urlpatterns = patterns(
     (r'^logout/$', 'journey.creds.views.logout_user'),
     (r'^project/$', 'journey.vote.views.project'),
     (r'^add_myself_to_team/$', 'journey.vote.views.add_myself_to_team'),
+    (r'^m/$', 'journey.static_html.views.mobile'),
+    (r'^ballot/$', 'journey.static_html.views.ballot'),
+    (r'^$', 'journey.static_html.views.ballot'),
     (r'^admin/', include(admin.site.urls)),
-    
+        
 )
