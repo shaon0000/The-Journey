@@ -21,6 +21,83 @@ $(document).ready(function() {
 				cool: 5,
 				bling: 1
 			}
+		},
+		{
+			name: "Some blokes",
+			members: ["jeff", "ashleykb", "duncan", "shaon"],
+			description: "Wat.",
+			stats: {
+				useful: 3,
+				funny: 4,
+				cool: 5,
+				bling: 1
+			}
+		},
+		{
+			name: "lskjd lakj ",
+			members: ["jeff", "jim"],
+			description: "Wat wat in tha butt.",
+			stats: {
+				useful: 3,
+				funny: 4,
+				cool: 5,
+				bling: 1
+			}
+		},
+		{
+			name: "The wattt",
+			members: ["jeff", "jim"],
+			description: "Wat.",
+			stats: {
+				useful: 3,
+				funny: 4,
+				cool: 5,
+				bling: 1
+			}
+		},
+		{
+			name: "The wattt",
+			members: ["jeff", "jim"],
+			description: "Wat.",
+			stats: {
+				useful: 3,
+				funny: 4,
+				cool: 5,
+				bling: 1
+			}
+		},
+		{
+			name: "The wattt",
+			members: ["jeff", "jim"],
+			description: "Wat.",
+			stats: {
+				useful: 3,
+				funny: 4,
+				cool: 5,
+				bling: 1
+			}
+		},
+		{
+			name: "The wattt",
+			members: ["jeff", "jim"],
+			description: "Wat.",
+			stats: {
+				useful: 3,
+				funny: 4,
+				cool: 5,
+				bling: 1
+			}
+		},
+		{
+			name: "The wattt",
+			members: ["jeff", "jim"],
+			description: "Wat.",
+			stats: {
+				useful: 3,
+				funny: 4,
+				cool: 5,
+				bling: 1
+			}
 		}
 	]
 	
@@ -42,7 +119,6 @@ $(document).ready(function() {
 		var team_desc = $('<div class="team-description" />')
 			.append($('<div class="col1 teamname"/>').text(team.name))
 			.append($('<div class="col2 members"/>').text(team.members.join(', ')))
-			.append($('<div class="col3 description" />').text(team.description))
 
 		$('#hackathon-teams').append(
 			$('<div class="team" />')

@@ -12,22 +12,18 @@
 	border-bottom-right-radius: 10px;
 	border-bottom-left-radius: 10px;
 	background: white;
-	width: 1000px;
-	padding: 20px;
-	margin: auto;
-}
-
-body {
-	background: grey;
-}
-
-main {
-	height: 1000px;
-
+	width: 430px;
+	padding: 5px;
+	margin: 0 10px;
 }
 
 body {
 	background: #A0A0A0;
+}
+
+main {
+	height: 600px;
+
 }
 
 
@@ -48,7 +44,6 @@ body {
 .tableballot > .team > div {
 	display: table-cell;
 	padding: 4px;
-	border: 1px dotted red; 
 }
 
 .singlevote {
@@ -70,10 +65,6 @@ body {
 	text-align: center;
 }
 
-.tableballot > .team > div:nth-child(odd),
-#headers > div:nth-child(odd) {
-	background: #eee;
-}
 
 #headers > div {
 	-webkit-border-top-left-radius: 10px;
@@ -95,18 +86,19 @@ body {
 
 .teamname {
 	font-family: Helvetica, Arial, sans-serif;
-	font-size: 20px;
+	font-size: 14px !important;
+	vertical-align: middle;
 }
 
 .members {
 	font-family: Helvetica, Arial, sans-serif;
-	font-size: 12px;
-	color: green;
+	font-size: 12px !important;
+	color: grey;
 }
 
 .description {
 	font-family: Helvetica, Arial, sans-serif;
-	font-size: 14px;
+	font-size: 14px !important;
 	color: gray;
 }
 
@@ -159,7 +151,7 @@ body {
 	background-position: 0 -180px;
 }
 
-.starArea {
+div .starArea {
 	width: 32px;
 	height: 30px;
 	display: inline-block;
@@ -169,19 +161,28 @@ body {
 .type-desc {
     display: inline-block;
     width: 80px;
-    vertical-align: super;
+    vertical-align: inherit;
+}
+
+.type-desc span {
+    font-size: 14px;
+    font-family: verdana, Helvetica;
 }
 
 .col1 {
-    width: 150px;
+    width: 200px;
+    text-align: left !important;
 }
 
 .col2 {
-    width: 150px;
+    width: 200px;
+    max-width: ;
+    text-align: left !important;
 }
 
 .col3 {
-    width: 300px;
+    width: 200px;
+    text-align: left !important;
 }
 
 
@@ -191,10 +192,21 @@ body {
     font-size: 20px;
     text-align: center;
     vertical-align: super;
-    border: 1px dotted red;
 }
 
 .rating-container {
-    padding-left:345px
+    padding-left: 80px
 }
 
+.team {
+    border-bottom: 1px dotted grey;
+}
+
+
+#headers {
+    border-bottom: 2px solid #C11B17;
+}
+
+.team_votes {
+    padding-bottom: 10px;
+}
