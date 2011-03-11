@@ -12,7 +12,6 @@ ADMINS = (
 CUR_DIR = os.getcwd()
 
 MANAGERS = ADMINS
-
 DATABASES = {
     'default': {
         'ENGINE': 'mysql', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
@@ -60,7 +59,7 @@ MEDIA_URL = ''
 # trailing slash.
 # Examples: "http://foo.com/media/", "/media/".
 ADMIN_MEDIA_PREFIX = '/media/'
-
+LOGIN_URL = '/login/'
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = 'jg!r=%8t87zh$js#+(5=+532%2#g=p-4^_sn!)l&m)&o88!#z%'
 
