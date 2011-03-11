@@ -3,12 +3,24 @@ $(document).ready(function() {
 		{
 			name: "The Journey",
 			members: ["akb","duncan","krall","shaon"],
-			description: "AWESOMENESS"
+			description: "AWESOMENESS",
+			stats: {
+				useful: 1,
+				funny: 2,
+				cool: 3,
+				bling: 4
+			}
 		},
 		{
 			name: "The Quitness",
 			members: ["derwiki", "neil"],
-			description: "We quit."
+			description: "We quit.",
+			stats: {
+				useful: 3,
+				funny: 4,
+				cool: 5,
+				bling: 2
+			}
 		}
 	]
 	
@@ -20,30 +32,26 @@ $(document).ready(function() {
 				.append($('<div class="teamname"/>').text(team.name))
 				.append($('<div class="members"/>').text(team.members.join(', ')))
 				.append($('<div class="description" />').text(team.description))
-				.append($('<div class="useful" />'))
-				.append($('<div class="funny" />'))
-				.append($('<div class="cool" />'))
-				.append($('<div class="bling" />'))
+				.append($('<div class="useful" />').append($('<div class="rating stars-'+team.stats.useful+'" />')))
+				.append($('<div class="funny" />').append($('<div class="rating stars-'+team.stats.funny+'" />')))
+				.append($('<div class="cool" />').append($('<div class="rating stars-'+team.stats.cool+'" />')))
+				.append($('<div class="bling" />').append($('<div class="rating stars-'+team.stats.bling+'" />')))
 		)
 	}
 
-	$('.useful, .funny, .cool, .bling').append($('<div class="rating stars-0" />'))
+	$('.useful, .funny, .cool, .bling').append()
 	ratings = $('.rating')
 	for (var i=1; i<=5; i++) {
 		(function(i) {
 			ratings.append(function(ixRating) {
-				console.log('rchoeurchoeurch '+i)
 				return $('<div class="starArea"></span>')
 					.mouseenter(function(event) {
-						console.log('enter')
 						$(ratings[ixRating]).addClass('mouseover-stars'+i)
 					})
 					.mouseleave(function(event) {
-						console.log('leave')
 						$(ratings[ixRating]).removeClass('mouseover-stars'+i)
 					})
 					.mouseup(function(event) {
-						console.log('click')
 						$(ratings[ixRating]).removeClass('stars-1 stars-2 stars-3 stars-4 stars-5').addClass('stars-'+i)
 					})
 			})
