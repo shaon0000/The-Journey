@@ -21,6 +21,11 @@ body {
 	background: grey;
 }
 
+#ballot {
+	width: 960px;
+	margin-left: auto;
+	margin-right: auto;
+}
 
 .tableballot {
 	display: table;
@@ -100,19 +105,6 @@ body {
 	color: gray;
 	vertical-align: middle;
 }
-
-.slideballot {
-}
-
-.slideballot > .team {
-	width: 5in;
-	height: 5in;
-}
-
-.slideballot > .headers {
-	display: none;
-}
-
 
 .ufcb {
 	width: 93px;
