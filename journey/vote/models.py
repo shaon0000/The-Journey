@@ -5,6 +5,12 @@ class Project(models.Model):
     name = models.CharField(max_length=1024)
     description = models.TextField()
 
+    def get_dict(self):
+        return {'name': self.name, 'description': self.description}
+
+    def __unicode__(self):
+        return self.name
+
     def stat(self):
         """Return a dictionary of score types and the corresponding average"""
         votes = UserVote.objects.filter(project=self)
@@ -61,5 +67,7 @@ class ProjectMember(models.Model):
     user = models.ForeignKey(User)
     project = models.ForeignKey(Project)
     def __unicode__(self):
-        return '%s %s' % (user.first_name, user.last_name)
-
+        return '%s in %s' % (self.user.username, self.project.name)
+    
+    class Meta:
+        unique_together = ('user', 'project',)

@@ -1,8 +1,8 @@
 from django.conf.urls.defaults import *
 import os
 # Uncomment the next two lines to enable the admin:
-# from django.contrib import admin
-# admin.autodiscover()
+from django.contrib import admin
+admin.autodiscover()
 
 urlpatterns = patterns(
     '', 
@@ -11,4 +11,8 @@ urlpatterns = patterns(
     (r'^vote/$', 'journey.vote.views.vote'),
     (r'^login/$', 'journey.creds.views.user_login'),
     (r'^logout/$', 'journey.creds.views.logout_user'),
+    (r'^project/$', 'journey.vote.views.project'),
+    (r'^add_myself_to_team/$', 'journey.vote.views.add_myself_to_team'),
+    (r'^admin/', include(admin.site.urls)),
+    
 )
