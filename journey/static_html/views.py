@@ -5,8 +5,12 @@ from django.contrib.auth.models import User
 
 @login_required
 def mobile(request):
-    return render_to_response('mobile.html')
+    params = {}
+    params['user'] = request.user
+    return render_to_response('mobile.html', params)
 
 @login_required
 def ballot(request):
-    return render_to_response('ballot.html')
+    params = {}
+    params['user'] = request.user
+    return render_to_response('ballot.html', params)
