@@ -37,7 +37,9 @@ def project(request):
         Project.objects.create(name=name, description=description)
         return HttpResponse('1')
     else:
-        id = request.GET['id']
+        id = request.GET.get('id', None)
+        if not id:
+            return HttpResponseBadRequest('id parameter is missing, could not retrieve')
         project = Project.objects.get(id=id)
         return HttpResponse(json.dumps(project.get_dict()), mimetype='application/json')
 
@@ -62,9 +64,17 @@ def vote(request):
     if request.POST:
         # post a change of a vote
         user = request.user
-        project_id = request.POST['project_id']
-        vote_type = request.POST['vote_type']
-        score = request.POST['score']
+        project_id = request.POST.get('project_id', None)
+        if not project_id:
+            return HttpResponseBadRequest('project_id parameter is missing')
+        vote_type = request.POST.get('vote_type', None)
+        if not vote_type:
+            return HttpResponseBadRequest('vote_type parameter is missing')
+        if not vote_type in UserVote.CHOICES:
+            return HttpResponseBadRequest('vote_type parameter is not valid, check spelling: %s' % vote_type)
+        score = request.POST.get('score', None)
+        if not score:
+            return HttpResponseBadRequest('score parameter is missing')
         project = Project.objects.get(id=project_id)
         
         obj, _ = UserVote.objects.get_or_create(user=user, project=project, vote_type=vote_type)
@@ -76,11 +86,15 @@ def vote(request):
         user = request.user
         project_id = request.GET.get('project_id', None)
         vote_type = request.GET.get('vote_type', None)
+        if not vote_type in UserVote.CHOICES:
+            return HttpResponseBadRequest('vote_type parameter is not valid, check_spelling: %s' % vote_type) 
         if not (project_id and vote_type):
             return HttpResponseBadRequest('project id or vote type was not given')
+        try:
+            project = Project.objects.get(id=project_id)
+        except Project.DoesNotExist:
+            return HttpResponseBadRequest('bad id given, no project found!')
 
-        project = Project.objects.get(id=project_id)
-        
         obj, _ = UserVote.objects.get_or_create(user=user, project=project, vote_type=vote_type)
         return HttpResponse(obj.score)
     else:
