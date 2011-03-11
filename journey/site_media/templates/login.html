@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<title>WHoopCity Mobile </title>
+		<title>Yelp Ballot | H@ckath0n 4.0 </title>
 		
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta http-equiv="cache-control" content="no-cache" /> 
@@ -18,31 +18,43 @@
 </head>
 
 <body>
-
 <div id="header">
 <!-- end #header --></div>
+
+
+<div id="container">
+
+			<img src="../../site_media/images/YelpLogo.jpg" height="100" border-color="white"> 
+			<br>
+
+			<center><font size="8" face="verdana"> H@ckath0n 4.0 Sign In </font></center>
+<br>
+			<center>
+				<div id="ballot" class="tableballot">
+						
+			</div>
+			</center>
+		</div>
 
    
 
 <ul class="footerNav">
 
 	<form action="/login/" method="post">{% csrf_token %}
-	<li>{{ error }}<input type="hidden" name="next" value="{% if next %}{{next}}{% else %}/booth/{% endif %}"></li>
-    <li>Email:<input type="textbox" name="username" type="text"></li>
-	<li>Password:<input type="password" name="password" type="password"></li>
+	{{ error }}<input type="hidden" name="next" value="{% if next %}{{next}}{% else %}/booth/{% endif %}">
+    <li>Yelp ID:<input type="textbox" name="username" type="text"></li>
+	<li>Yelp Password:<input type="password" name="password" type="password"></li>
 	<li><input type="submit" name="submit" value="Login"></li>
     </form>
 
 </ul>
 
 
-
-
 <br class="clearfloat" /><!-- This clearing element should immediately follow the #mainContent div in order to force the #container div to contain all child floats -->
 
 
-<!-- end #mainContent --></div><br class="clearfloat" />
-<!-- end #footer --></div>
+<!-- end #mainContent --></div>
 
-</body>
+<div id="footer">Voting is a Journey</div>
+	</body>
 </html>

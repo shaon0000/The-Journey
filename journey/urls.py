@@ -11,6 +11,7 @@ urlpatterns = patterns(
     (r'^vote/$', 'journey.vote.views.vote'),
     (r'^login/$', 'journey.creds.views.user_login'),
     (r'^logout/$', 'journey.creds.views.logout_user'),
+    (r'^register/$', 'journey.creds.views.register'),
     (r'^project/$', 'journey.vote.views.project'),
     (r'^add_myself_to_team/$', 'journey.vote.views.add_myself_to_team'),
     (r'^m/$', 'journey.static_html.views.mobile'),

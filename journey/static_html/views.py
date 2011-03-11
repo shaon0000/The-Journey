@@ -7,5 +7,6 @@ from django.contrib.auth.models import User
 def mobile(request):
     return render_to_response('mobile.html')
 
+@login_required
 def ballot(request):
     return render_to_response('ballot.html')
