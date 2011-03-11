@@ -122,7 +122,7 @@ main {
 
 .rating {
 	margin: 5px;
-	background: url("stars_m.png");
+	background: url("/site_media/images/stars_m.png");
 	background-repeat: no-repeat;
 	width: 160px;
 	height: 30px;
