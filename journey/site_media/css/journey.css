@@ -121,7 +121,7 @@ body {
 
 .rating {
 	margin: 5px;
-	background: url("stars.png") ;
+	background: url("/site_media/images/stars.png") ;
 	background-repeat: no-repeat;
 	width: 93px;
 	height: 20px;
