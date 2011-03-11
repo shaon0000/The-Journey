@@ -147,7 +147,7 @@ $(document).ready(function() {
 	for (var i=0; i<teams.length; i++) {
 		team = teams[i];
 		sMembers = team.members.join(', ');
-		$(ballot).append(
+		$("#ballot").append(
 			$('<div class="team" />')
 				.append($('<div class="teamname"/>').text(team.name))
 				.append($('<div class="members"/>').text(team.members.join(', ')))
