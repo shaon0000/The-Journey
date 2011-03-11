@@ -16,5 +16,7 @@ class UserVote(models):
 	project = models.ForeignKey(Project)
 	vote_type = models.CharField(max_length=32, choices=CHOICES)
 	score = IntegerField(choices=SCORE_CHOICES)
-	
-# Create your models here.
+
+class User(models):
+	username = models.CharField(max_length=100, required=True)
+
