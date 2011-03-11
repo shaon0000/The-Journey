@@ -39,7 +39,6 @@ $(document).ready(function() {
 		)
 	}
 
-	$('.useful, .funny, .cool, .bling').append()
 	ratings = $('.rating')
 	for (var i=1; i<=5; i++) {
 		(function(i) {
