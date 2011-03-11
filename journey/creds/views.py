@@ -1,6 +1,7 @@
 from django.http import HttpResponseRedirect, HttpRequest
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.models import User
 from django.shortcuts import render_to_response
 
 def user_login(request):
