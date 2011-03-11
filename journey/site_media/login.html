@@ -26,10 +26,18 @@
 
 <ul class="footerNav">
 
-	<li>Player: Sign into your Profile<input type="hidden" name="md5pass"><form action="/m/p/psignin" method="post"></li>
-	<li>Email:<input type="textbox" name="email"></li>
-	<li>Password:<input type="password" name="pass"></li>
-	<li><input type="submit" name="submit" value="Login"></form>	</li>
+	<form action="/login/" method="post">
+	<li>{{ error }}<input type="hidden" name="next" value="
+        {% if next %}
+            {{next}}
+        {% else %}
+            /booth/
+        {% endif %}"
+    ></li>
+    <li>Email:<input type="textbox" name="email" type="text"></li>
+	<li>Password:<input type="password" name="pass" type="password"></li>
+	<li><input type="submit" name="submit" value="Login"></li>
+    </form>
 
 </ul>
 
