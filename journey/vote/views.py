@@ -83,4 +83,6 @@ def vote(request):
         
         obj, _ = UserVote.objects.get_or_create(user=user, project=project, vote_type=vote_type)
         return HttpResponse(obj.score)
+    else:
+        return HttpResponseBadRequest('This needs to be a GET or a POST call. GET parameters: project_id, vote_type. POST parameters: project_id, vote_type, score')
  
