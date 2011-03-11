@@ -4,11 +4,13 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.shortcuts import render_to_response
 from django.core.context_processors import csrf
+from django.views.decorators.csrf import csrf_exempt 
 
+@csrf_exempt
 def user_login(request):
     if request.POST:
         # login form was submitted
-        next = request.POST.get('next', '/booth/')
+        next = request.POST.get('next', '/ballot/')
         username = request.POST['username']
         password = request.POST['password']
         user = authenticate(username=username, password=password)
@@ -26,7 +28,7 @@ def user_login(request):
         # login form was requested
         c = {}
         c.update(csrf(request))
-        c['next'] = request.GET.get('next','/booth/')
+        c['next'] = request.GET.get('next','/ballot/')
         return render_to_response('login.html', c)
 
 import urllib
@@ -36,6 +38,7 @@ def error_query_string(error):
     error = urllib.urlencode(error)
     return '?'+error
 
+@csrf_exempt
 def register(request):
     if request.POST:
         # registration form was submitted
@@ -49,11 +52,12 @@ def register(request):
         if password != repeat:
             return HttpResponseRedirect('/register/' + error_query_string('passwords must be the same'))
         try:
-            user = User.objects.create(username, password)
-        except User.AlreadyExistis:
-            return HttpResponseRedirect('/register/' + error_query_string('username already exists, try another one'))
-            
-        return user_login(request)
+            user = User.objects.get(username=username)
+            return HttpResponseRedirect('/register/' + error_query_string('already exists, try again'))
+        except User.DoesNotExist:
+            user = User.objects.create(username=username, password=password)
+            authenticate(username=username, password=password)
+            return HttpResponseRedirect('/ballot/')
     else:
         # registration form was asked for
         c = {}
