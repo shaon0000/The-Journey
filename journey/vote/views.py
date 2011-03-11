@@ -1,5 +1,5 @@
 # Create your views here.
-from journey.vote.models import Project, ProjectMember, UserVote
+from journey.vote.models import Project, ProjectMember, YelperVote, Yelper
 from django.utils.simplejson.encoder import JSONEncoder as json_encode
 from django.utils.simplejson.decoder import JSONDecoder as json_decode
 from django.http import HttpResponse
@@ -18,5 +18,8 @@ def get_all(request):
         info.append(data_dict)
     return HttpResponse(json_encode(info), mimetype='application/json')
 
-         
-    
+def get_my_votes(request):
+    """Get a JSON string containing all projects that a user voted on"""
+    user = request.user
+    info = user.my_votes()
+    return HttpResponse(json_encode(info), mimetype='application/json')
