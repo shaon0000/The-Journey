@@ -26,7 +26,7 @@
 
 <ul class="footerNav">
 
-	<form action="/login/" method="post">
+	<form action="/login/" method="post">{% csrf_token %}
 	<li>{{ error }}<input type="hidden" name="next" value="
         {% if next %}
             {{next}}
@@ -34,8 +34,8 @@
             /booth/
         {% endif %}"
     ></li>
-    <li>Email:<input type="textbox" name="email" type="text"></li>
-	<li>Password:<input type="password" name="pass" type="password"></li>
+    <li>Email:<input type="textbox" name="username" type="text"></li>
+	<li>Password:<input type="password" name="password" type="password"></li>
 	<li><input type="submit" name="submit" value="Login"></li>
     </form>
 

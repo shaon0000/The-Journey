@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.shortcuts import render_to_response
+from django.core.context_processors import csrf
 
 def user_login(request):
     if request.POST:
@@ -19,11 +20,14 @@ def user_login(request):
             else:
                 return render_to_response('login.html', {'error': 'Your account has been disabled'})
         else:
-            return render_to_resposne('login.html', {'error': 'incorrect password/username combination'})
+            return render_to_response('login.html', {'error': 'incorrect password/username combination'})
     else:
+
         # login form was requested
-        next = request.GET.get('next','/booth/')
-        return render_to_response('login.html',{'next':next})
+        c = {}
+        c.update(csrf(request))
+        c['next'] = request.GET.get('next','/booth/')
+        return render_to_response('login.html', c)
 
 @login_required
 def logout_user(request):
