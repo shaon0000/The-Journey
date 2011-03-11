@@ -29,9 +29,12 @@ class UserTest(TestCase):
         Given one project, one user, and a few set of votes all set to three, 
         check if my_votes returns correct results
         """
-        data = UserVote.objects.my_votes(User.objects.get(username='test_user'))
-        assert data == [{'name': 'test_project', 'description':'This is a test!', 'members': ['test_user'], 'stats': dict((x, 3) for x, y in UserVote.CHOICES)}]
-
+        data = UserVote.objects.my_votes(self.user)
+        try:
+            assert data == [{'name': 'test_project', 'description':'This is a test!', 'members': ['test_user'], 'stats': dict((x, 3) for x, y in UserVote.CHOICES)}]
+        except AssertionError:
+            import pdb
+            pdb.set_trace()
 __test__ = {"doctest": """
 Another way to test that 1 + 1 is equal to 2.
 

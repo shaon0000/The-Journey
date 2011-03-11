@@ -1,10 +1,15 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+class ProjectManager(models.Manager):
+    def get_query_set(self):
+        return super(ProjectManager, self).get_query_set().order_by('order_id')
+
 class Project(models.Model):
     name = models.CharField(max_length=1024)
-    description = models.TextField()
-
+    description = models.TextField(default='Yelp Team')
+    order_id = models.IntegerField(default=0)
+    objects = ProjectManager()
     def get_dict(self):
         return {'name': self.name, 'description': self.description}
 
