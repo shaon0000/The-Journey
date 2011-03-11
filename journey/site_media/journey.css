@@ -1,16 +1,43 @@
+main {
+	height: 1000px;
+
+}
+
+body {
+	background: #A0A0A0;
+}
+
+
 .tableballot {
 	display: table;
+	border: none;
+	background: #A0A0A0;
+	color: white;
 }
 
 #headers,
 .tableballot > .team {
 	display: table-row;
+	
 }
 
 #headers > div,
 .tableballot > .team > div {
 	display: table-cell;
 	padding: 4px;
+	border: 1px dotted red; 
+}
+
+.singlevote {
+	display: table;
+	border: none;
+	background: #A0A0A0;
+	color: white;
+}
+
+.singlevote > .team {
+	display: table-cell;
+	
 }
 
 #headers > div {
@@ -42,11 +69,6 @@
 	border-bottom-right-radius: 10px;
 	border-bottom-left-radius: 10px;
 }
-
-/*div {
-	border: 1px solid black;
-}
-*/
 
 .teamname {
 	font-family: Helvetica, Arial, sans-serif;
@@ -89,6 +111,7 @@
 	background-repeat: no-repeat;
 	width: 160px;
 	height: 30px;
+	border: none;
 	background-position: 0 0px;
 }
 
