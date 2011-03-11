@@ -10,13 +10,13 @@
 			team = teams[i];
 			sMembers = team.members.join(', ');
 			$("#ballot").append(
-				$('<div class="team" />')
+				$('<div class="team" id="team-'+team.project_id+'" teamnum="'+team.project_id+'"/>')
 					.append($('<div class="teamname"/>').text(team.name))
 					.append($('<div class="members"/>').text(team.members.join(', ')))
-					.append($('<div class="useful" />').append($('<div class="rating stars-'+team.stats.useful+'" />')))
-					.append($('<div class="funny" />').append($('<div class="rating stars-'+team.stats.funny+'" />')))
-					.append($('<div class="cool" />').append($('<div class="rating stars-'+team.stats.cool+'" />')))
-					.append($('<div class="bling" />').append($('<div class="rating stars-'+team.stats.bling+'" />')))
+					.append($('<div class="ufcb" votetype="useful" />').append($('<div class="rating stars-'+team.stats.USEFUL+'" />')))
+					.append($('<div class="ufcb" votetype="funny" />').append($('<div class="rating stars-'+team.stats.FUNNY+'" />')))
+					.append($('<div class="ufcb" votetype="cool" />').append($('<div class="rating stars-'+team.stats.COOL+'" />')))
+					.append($('<div class="ufcb" votetype="bling" />').append($('<div class="rating stars-'+team.stats.BLING+'" />')))
 			)
 		}
 
@@ -33,6 +33,13 @@
 						})
 						.mouseup(function(event) {
 							$(ratings[ixRating]).removeClass('stars-1 stars-2 stars-3 stars-4 stars-5').addClass('stars-'+i)
+							project_id = $(event.target).parents('.team').attr('teamnum')
+							vote_type = $(event.target).parents('.ufcb').attr('votetype')
+							$.post('/vote/', {
+								project_id: project_id,
+								vote_type: vote_type,
+								score: i
+							})
 						})
 				})
 			}(i))
