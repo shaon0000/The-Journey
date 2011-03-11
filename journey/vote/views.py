@@ -7,6 +7,8 @@ from django.contrib.auth.models import User
 
 import json
 
+from django.views.decorators.csrf import csrf_exempt 
+
 @login_required
 def get_all(request):
     """Get a JSON string containing all projects, members of projects, and project votes"""
@@ -29,6 +31,7 @@ def get_my_votes(request):
     return HttpResponse(json.dumps(info), mimetype='application/json')
 
 @login_required
+@csrf_exempt
 def project(request):
     """POST/GET system to deal with retrieving/adding projects"""
     if request.POST:
@@ -43,7 +46,9 @@ def project(request):
         project = Project.objects.get(id=id)
         return HttpResponse(json.dumps(project.get_dict()), mimetype='application/json')
 
+
 @login_required
+@csrf_exempt
 def add_myself_to_team(request):
     """Add yourself to a team"""
     if request.POST:
@@ -59,7 +64,9 @@ def add_myself_to_team(request):
     else:
         return HttpResponseBadRequest('must be a POST command')
 
+
 @login_required
+@csrf_exempt
 def vote(request):
     if request.POST:
         # post a change of a vote
@@ -70,8 +77,6 @@ def vote(request):
         vote_type = request.POST.get('vote_type', None)
         if not vote_type:
             return HttpResponseBadRequest('vote_type parameter is missing')
-        if not vote_type in UserVote.CHOICES:
-            return HttpResponseBadRequest('vote_type parameter is not valid, check spelling: %s' % vote_type)
         score = request.POST.get('score', None)
         if not score:
             return HttpResponseBadRequest('score parameter is missing')
@@ -86,8 +91,6 @@ def vote(request):
         user = request.user
         project_id = request.GET.get('project_id', None)
         vote_type = request.GET.get('vote_type', None)
-        if not vote_type in UserVote.CHOICES:
-            return HttpResponseBadRequest('vote_type parameter is not valid, check_spelling: %s' % vote_type) 
         if not (project_id and vote_type):
             return HttpResponseBadRequest('project id or vote type was not given')
         try:
