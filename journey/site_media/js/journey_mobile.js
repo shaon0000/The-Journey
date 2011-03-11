@@ -56,7 +56,8 @@
 		}
 
 		$(".team-description").click(function(){
-			$(this).next().slideToggle();
+			$('.team-description').next().slideUp();
+			$(this).next().slideDown();
 		    });
 	}
 
