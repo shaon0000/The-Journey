@@ -4,6 +4,7 @@ import os
 # from django.contrib import admin
 # admin.autodiscover()
 
-urlpatterns = patterns('', 
-	('r^site_media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': os.getcwd() + '/site_media'}),
+urlpatterns = patterns(
+    '', 
+    (r'^site_media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': os.curdir + '/site_media'}),
 )
